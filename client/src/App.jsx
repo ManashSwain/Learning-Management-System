@@ -1,6 +1,4 @@
-import { useContext } from 'react';
 import './App.css';
-import { ContextProvider } from './context/AppContext';
 import { Route, Routes } from 'react-router-dom';
 import Home from './pages/student/Home';
 import CourseList from './pages/student/CourseList';
@@ -17,13 +15,8 @@ import StudentsEnrolled from './pages/educator/StudentsEnrolled';
 
 function App() {
 
-  const  {testfunction} = useContext(ContextProvider);
- 
-
   return (
     <>
-    <h1>App component</h1>
-    <button onClick={testfunction}>test context API</button>
     <Routes>
       <Route path='/' element={<Home/>}/>
       <Route path='/course-list' element={<CourseList/>}/>
