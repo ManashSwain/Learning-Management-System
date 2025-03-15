@@ -5,7 +5,7 @@ const Educator = () => {
   return (
     <>
     <h1>Educator</h1>
-    {Outlet}
+    {<Outlet/>}
     </>
   )
 }
