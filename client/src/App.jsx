@@ -11,18 +11,20 @@ import Dashboard from './pages/educator/Dashboard';
 import AddCourse from './pages/educator/AddCourse';
 import MyCourses from './pages/educator/MyCourses';
 import StudentsEnrolled from './pages/educator/StudentsEnrolled';
+import Navbar from './components/student/Navbar';
 
 
 function App() {
 
   return (
     <>
+     <Navbar/>
     <Routes>
       <Route path='/' element={<Home/>}/>
       <Route path='/course-list' element={<CourseList/>}/>
       <Route path='/course-list/:input' element={<CourseList/>}/>
       <Route path='/course/:id' element={<CourseDetails/>}/>
-      <Route path='/myenrollments' element={<MyEnrollments/>}/>
+      <Route path='/my-enrollments' element={<MyEnrollments/>}/>
       <Route path='/player/:courseId' element={<Player/>}/>
       <Route path='/loading/:path' element={<Loading/>}/>
       <Route path='/educator' element={<Educator/>}>
