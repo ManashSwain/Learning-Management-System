@@ -2,9 +2,9 @@ import React from 'react'
 
 const CourseList = () => {
   return (
-    <div>
-      
-    </div>
+    <>
+    <h1>Course list</h1>
+    </>
   )
 }
 
