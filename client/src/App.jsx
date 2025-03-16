@@ -13,6 +13,7 @@ import MyCourses from './pages/educator/MyCourses';
 import StudentsEnrolled from './pages/educator/StudentsEnrolled';
 import Navbar from './components/student/Navbar';
 import Companies from './components/student/Companies';
+import Hero from './components/student/Hero';
 
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
   return (
     <>
      <Navbar/>
+     <Hero/>
     <Routes>
       <Route path='/' element={<Home/>}/>
       <Route path='/course-list' element={<CourseList/>}/>
