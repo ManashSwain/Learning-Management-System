@@ -60,7 +60,7 @@ const Navbar = () => {
               </li>
               <li>
                 <a
-                  href="#"
+                  
                   className="block py-2 px-3 text-gray-900 hover:bg-gray-100 md:hover:bg-transparent md:p-0 md:hover:text-blue-700"
                 >
                   My Enrollments
