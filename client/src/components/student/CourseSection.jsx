@@ -1,9 +1,10 @@
 import React from 'react'
+// import { assets } from '../../assets/assets'
 
 const CourseSection = () => {
   return (
     <>
-    <h1>Course section</h1>
+    
     </>
   )
 }
