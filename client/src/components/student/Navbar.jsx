@@ -1,7 +1,5 @@
 import React, { useState } from "react";
-import {useClerk, UserButton , useUser } from '@clerk/clerk-react'
-
-
+import { useClerk, UserButton, useUser } from "@clerk/clerk-react";
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
@@ -11,10 +9,10 @@ const Navbar = () => {
   };
 
   const { user, isLoaded } = useUser();
-  const {openSignIn} = useClerk();
+  const { openSignIn } = useClerk();
 
   if (!isLoaded) {
-    return <div>Loading...</div>
+    return <div>Loading...</div>;
   }
 
   return (
@@ -57,7 +55,9 @@ const Navbar = () => {
             </svg>
           </button>
           <div
-            className={`${open ? 'block' : 'hidden'} md:flex items-center space-x-8 absolute md:static top-16 left-0 right-0 bg-white md:bg-transparent z-50 md:space-x-8 md:justify-end`}
+            className={`${
+              open ? "block" : "hidden"
+            } md:flex items-center space-x-8 absolute md:static top-16 left-0 right-0 bg-white md:bg-transparent z-50 md:space-x-8 md:justify-end`}
           >
             <ul className="font-medium flex flex-col md:flex-row md:space-x-8 p-4 md:p-0 mt-4 md:mt-0 border border-gray-100 md:border-0 bg-gray-50 md:bg-white rounded-lg md:rounded-none">
               <li>
@@ -69,20 +69,23 @@ const Navbar = () => {
                 </a>
               </li>
               <li>
-                <a
-                  
-                  className="block py-2 px-3 text-gray-900 hover:bg-gray-100 md:hover:bg-transparent md:p-0 md:hover:text-blue-700"
-                >
+                <a className="block py-2 px-3 text-gray-900 hover:bg-gray-100 md:hover:bg-transparent md:p-0 md:hover:text-blue-700">
                   My Enrollments
                 </a>
               </li>
               <li>
-               {user ?  <UserButton/> : <button onClick={()=>{openSignIn()}}
-                  
-                  className="block py-2 px-3 text-gray-900 hover:bg-gray-100 md:hover:bg-transparent md:p-0 md:hover:text-blue-700"
-                >
-                  Create Account
-                </button>}
+                {user ? (
+                  <UserButton />
+                ) : (
+                  <button
+                    onClick={() => {
+                      openSignIn();
+                    }}
+                    className="block py-2 px-3 text-gray-900 hover:bg-gray-100 md:hover:bg-transparent md:p-0 md:hover:text-blue-700"
+                  >
+                    Create Account
+                  </button>
+                )}
               </li>
             </ul>
           </div>
