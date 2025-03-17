@@ -1,4 +1,7 @@
 import React, { useState } from "react";
+import { SignedIn, SignedOut, SignInButton, useClerk, UserButton , useUser } from '@clerk/clerk-react'
+
+
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
@@ -6,6 +9,13 @@ const Navbar = () => {
   const toggleMenu = () => {
     setOpen(!open);
   };
+
+  const { user, isLoaded } = useUser();
+  const {openSignIn} = useClerk();
+
+  if (!isLoaded) {
+    return <div>Loading...</div>
+  }
 
   return (
     <>
@@ -67,12 +77,12 @@ const Navbar = () => {
                 </a>
               </li>
               <li>
-                <a
-                  href="#"
+               {user ?  <UserButton/> : <button onClick={()=>{openSignIn()}}
+                  
                   className="block py-2 px-3 text-gray-900 hover:bg-gray-100 md:hover:bg-transparent md:p-0 md:hover:text-blue-700"
                 >
                   Create Account
-                </a>
+                </button>}
               </li>
             </ul>
           </div>
