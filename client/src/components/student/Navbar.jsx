@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { SignedIn, SignedOut, SignInButton, useClerk, UserButton , useUser } from '@clerk/clerk-react'
+import {useClerk, UserButton , useUser } from '@clerk/clerk-react'
 
 
 
