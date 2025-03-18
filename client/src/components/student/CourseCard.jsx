@@ -4,7 +4,7 @@ import { ContextProvider } from "../../context/AppContext";
 import { Link } from "react-router-dom";
 
 const CourseCard = ({ course }) => {
-  const { currency } = useContext(ContextProvider);
+  const { currency , calculateRating } = useContext(ContextProvider);
   return (
     <>
       <Link
@@ -34,14 +34,14 @@ const CourseCard = ({ course }) => {
                 {[...Array(5)].map((_, i) => (
                   <img
                     key={i}
-                    src={assets.star}
+                    src={calculateRating({course}) ? assets.star : assets.star_blank}
                     alt="star"
                     className="w-4 h-4"
                   />
                 ))}
               </div>
 
-              <p className="text-gray-600">(22)</p>
+              <p className="text-gray-600">{course.courseRatings.length}</p>
             </div>
             <div className="font-bold">
               {currency}
