@@ -5,14 +5,16 @@ import { dummyCourses } from '../assets/assets';
 export const ContextProvider = createContext();
 const AppContext = (props) => {
 
+  // currency 
   const currency = import.meta.env.VITE_CURRENCY;
   
+  // courses 
    const [courseData , setCourseData] = useState([]);
    const rendercourses = async ()=>{
        setCourseData(dummyCourses);
    }
 
-  //  rating calculation function 
+  // Star rating calculation function 
 
   const calculateRating = ({course})=>{
     if(course.courseRatings.length === 0){
@@ -27,11 +29,15 @@ const AppContext = (props) => {
     }
   }
 
+  // Educator 
+
+  const [educator,setEducator] = useState(true);
+
    useEffect(()=>{
        rendercourses();
    },[])
 
-   const values = {currency , courseData , calculateRating}
+   const values = {currency , courseData , calculateRating , educator,setEducator}
   return (
     <>
     <ContextProvider.Provider value={values}>

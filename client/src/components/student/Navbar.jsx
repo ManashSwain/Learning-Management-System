@@ -1,5 +1,6 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { useClerk, UserButton, useUser } from "@clerk/clerk-react";
+import { ContextProvider } from "../../context/AppContext";
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
@@ -10,6 +11,8 @@ const Navbar = () => {
 
   const { user, isLoaded } = useUser();
   const { openSignIn } = useClerk();
+  // eslint-disable-next-line no-unused-vars
+  const {educator,setEducator} = useContext(ContextProvider);
 
   if (!isLoaded) {
     return <div>Loading...</div>;
@@ -64,8 +67,8 @@ const Navbar = () => {
                 <a
                   href="#"
                   className="block py-2 px-3 text-gray-900 hover:bg-gray-100 md:hover:bg-transparent md:p-0 md:hover:text-blue-700"
-                >
-                  Become Educator
+                >{ educator ? "Educator Dashboard" :
+                  "Become Educator"}
                 </a>
               </li>
               <li>
