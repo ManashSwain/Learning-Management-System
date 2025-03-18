@@ -12,11 +12,26 @@ const AppContext = (props) => {
        setCourseData(dummyCourses);
    }
 
+  //  rating calculation function 
+
+  const calculateRating = ({course})=>{
+    if(course.courseRatings.length === 0){
+       return 0 ;
+    }
+    else {
+      let totalRating = 0 ;
+      course.courseRatings.forEach((rating)=>{
+        totalRating += rating.rating ;
+      })
+      return totalRating / course.courseRatings.length
+    }
+  }
+
    useEffect(()=>{
        rendercourses();
    },[])
 
-   const values = {currency , courseData}
+   const values = {currency , courseData , calculateRating}
   return (
     <>
     <ContextProvider.Provider value={values}>
