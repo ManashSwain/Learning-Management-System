@@ -1,11 +1,12 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { assets } from '../../assets/assets'
+import { ContextProvider } from '../../context/AppContext'
 
 const CourseCard = ({course}) => {
+
+  const {currency} = useContext(ContextProvider)
   return (
     <>
-    
-
 <div className="max-w-sm bg-white border border-gray-200 rounded-lg shadow-sm">
     <a href="#">
         <img className="rounded-t-lg" src={course.courseThumbnail}alt="Thumbnail" />
@@ -22,7 +23,7 @@ const CourseCard = ({course}) => {
            ))}
            <p>22</p>
         </div>
-        <div>
+        <div>{currency}
           {(course.coursePrice - course.discount * course.coursePrice / 100).toFixed(2)}
         </div>
     </div>
