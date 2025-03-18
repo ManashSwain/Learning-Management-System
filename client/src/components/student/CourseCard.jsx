@@ -29,12 +29,12 @@ const CourseCard = ({ course }) => {
               {course.educator.name}
             </p>
             <div className="flex  gap-2 items-center">
-              <p>{4.5}</p>
+              <p>{calculateRating({course})}</p>
               <div className="flex">
                 {[...Array(5)].map((_, i) => (
                   <img
                     key={i}
-                    src={calculateRating({course}) ? assets.star : assets.star_blank}
+                    src={i < Math.floor(calculateRating({course})) ? assets.star : assets.star_blank}
                     alt="star"
                     className="w-4 h-4"
                   />
