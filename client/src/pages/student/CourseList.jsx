@@ -2,11 +2,13 @@ import React, { useContext } from "react";
 import Searchbar from "../../components/student/Searchbar";
 import { ContextProvider } from "../../context/AppContext";
 import CourseCard from "../../components/student/CourseCard";
+import { useParams } from "react-router-dom";
 
 
 const CourseList = () => {
 
   const {courseData} = useContext(ContextProvider);
+  const {input} = useParams();
   return (
     <>
       <div className="flex justify-between px-36 mt-6">
@@ -64,6 +66,10 @@ const CourseList = () => {
         <div className="w-[50%] mx-[-100px]">
           <Searchbar/>
         </div>
+      </div>
+      {/* button  */}
+      <div>{ input ?  
+      <button type="button" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 focus:outline-none ">{input}</button> : <></>}
       </div>
       {/* course list  */}
       <div className="px-36 mt-16 mb-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
