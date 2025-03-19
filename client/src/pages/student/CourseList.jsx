@@ -1,7 +1,12 @@
-import React from "react";
+import React, { useContext } from "react";
 import Searchbar from "../../components/student/Searchbar";
+import { ContextProvider } from "../../context/AppContext";
+import CourseCard from "../../components/student/CourseCard";
+
 
 const CourseList = () => {
+
+  const {courseData} = useContext(ContextProvider);
   return (
     <>
       <div className="flex justify-between px-36 mt-6">
@@ -59,6 +64,12 @@ const CourseList = () => {
         <div className="w-[50%] mx-[-100px]">
           <Searchbar/>
         </div>
+      </div>
+      {/* course list  */}
+      <div className="px-36 mt-16 mb-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+        {courseData.map((course,index)=>{
+          return<CourseCard key={index} course={course}/>
+        })}
       </div>
     </>
   );
