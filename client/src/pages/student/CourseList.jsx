@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import Searchbar from "../../components/student/Searchbar";
 import { ContextProvider } from "../../context/AppContext";
 import CourseCard from "../../components/student/CourseCard";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
 
 const CourseList = () => {
@@ -10,9 +10,10 @@ const CourseList = () => {
   const {courseData} = useContext(ContextProvider);
   const {input} = useParams();
   const [filteredCourses , setFilteredCourses] = useState([]);
+  const navigate = useNavigate();
   useEffect(()=>{
     if(courseData  && courseData.length > 0){
-          const tempCourses = courseData.slice()
+          const tempCourses = courseData.slice(); 
         input ? setFilteredCourses(tempCourses.filter(item=>
           item.courseTitle.toLowerCase().includes(input.toLowerCase())
         )) : setFilteredCourses(courseData) ;
@@ -77,8 +78,8 @@ const CourseList = () => {
         </div>
       </div>
       {/* button  */}
-      <div>{ input ?  
-      <button type="button" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 focus:outline-none ">{input}</button> : <></>}
+      <div className="px-36 mt-6">{ input ?  
+      <button onClick={()=>{navigate('/course-list')}} type="button" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 focus:outline-none ">{input}</button> : <></>}
       </div>
       {/* course list  */}
       <div className="px-36 mt-16 mb-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
