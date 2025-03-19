@@ -1,6 +1,7 @@
 import React from 'react'
 import { assets } from '../../assets/assets'
 
+
 const TestimonialCard = ({ name, role, image, feedback ,rating}) => {
   return (
   <>
@@ -22,7 +23,6 @@ const TestimonialCard = ({ name, role, image, feedback ,rating}) => {
       <h2 className="text-gray-900 font-semibold text-lg">{name}</h2>
       <p className="text-gray-500 text-sm">{role}</p>
     </div>
-
   </>
   )
 }

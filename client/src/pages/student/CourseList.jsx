@@ -3,6 +3,7 @@ import Searchbar from "../../components/student/Searchbar";
 import { ContextProvider } from "../../context/AppContext";
 import CourseCard from "../../components/student/CourseCard";
 import { useNavigate, useParams } from "react-router-dom";
+import Footer from "../../components/student/Footer";
 
 
 const CourseList = () => {
@@ -87,6 +88,7 @@ const CourseList = () => {
           return<CourseCard key={index} course={course}/>
         })}
       </div>
+      <Footer/>
     </>
   );
 };
